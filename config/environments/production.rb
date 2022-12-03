@@ -90,6 +90,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.hosts << 'rails.up.railway.app'
+  Rails.application.configure do
+    config.hosts = [
+      ENV["SERVER_HOST_NAME"]
+    ]
+  end
+  
 
 end
